@@ -1,29 +1,30 @@
 <% include ./partials/header %>
+
 <div class='container'>
-  
-  <div class="form-container">
-    <form action='/addData' method="POST" class="form-inline">
-        <div class="form-group">
-          <label for="number">ნომერი</label>
-          <input name="data[num]" type="text" class="form-control" id="number" placeholder="557722212">
-        </div>
-        <div class="form-group">
-          <label for="pack">პაკეტი</label>
-          <select name="data[pack]" class="form-control">
-            <option>METI 25</option>
-            <option>3GEL 500MB</option>
-            <option>5GEL 1.2GB</option>
-            <option>7GEL 2GB</option>
-            <option>10GEL 4GB</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="comment">კომენტარი</label>
-          <input name="data[comment]" type="text" class="form-control" id="comment" placeholder="bla bla bla bla">
-        </div>
-      <button type="submit" class="btn btn-primary">დამახსოვრება</button>
-    </form>
-  </div>
+
+      <div class="form-container">
+        <form action='/addData' method="POST" class="form-inline">
+            <div class="form-group">
+              <label for="number">ნომერი</label>
+              <input name="data[num]" type="text" class="form-control" id="number" placeholder="557722212">
+            </div>
+            <div class="form-group">
+              <label for="pack">პაკეტი</label>
+              <select name="data[pack]" class="form-control">
+                <option>METI 25</option>
+                <option>3GEL 500MB</option>
+                <option>5GEL 1.2GB</option>
+                <option>7GEL 2GB</option>
+                <option>10GEL 4GB</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comment">კომენტარი</label>
+              <input name="data[comment]" type="text" class="form-control" id="comment" placeholder="bla bla bla bla">
+            </div>
+          <button type="submit" class="btn btn-primary">დამახსოვრება</button>
+        </form>
+      </div>
 
     <table class="table table-bordered">
         <tr>
@@ -34,42 +35,42 @@
         <tr>
             <td><strong>ხვედელიძე</strong></td>
             <td><%= scores.khvedelidze.meti %></td>
-            <td><%= scores.khvedelidze.data %></td>
+            <td><%= scores.khvedelidze.data - scores.khvedelidze.meti %></td>
         </tr>
         <tr>
             <td><strong>ბაქრო</strong></td>
             <td><%= scores.baqro.meti %></td>
-            <td><%= scores.baqro.data %></td>
+            <td><%= scores.baqro.data - scores.baqro.meti %></td>
         </tr>
         <tr>
             <td><strong>ლიკა</strong></td>
             <td><%= scores.lika.meti %></td>
-            <td><%= scores.lika.data %></td>
+            <td><%= scores.lika.data - scores.lika.meti %></td>
         </tr>
         <tr>
             <td><strong>ბაბუასშვილი</strong></td>
             <td><%= scores.abuashvili.meti %></td>
-            <td><%= scores.abuashvili.data %></td>
+            <td><%= scores.abuashvili.data - scores.abuashvili.meti %></td>
         </tr>
         <tr>
             <td><strong>სანდრო</strong></td>
             <td><%= scores.sandro.meti %></td>
-            <td><%= scores.sandro.data %></td>
+            <td><%= scores.sandro.data - scores.sandro.meti%></td>
         </tr>
         <tr>
             <td><strong>ბოჟა</strong></td>
             <td><%= scores.boja.meti %></td>
-            <td><%= scores.boja.data %></td>
+            <td><%= scores.boja.data - scores.boja.meti %></td>
         </tr>
         <tr>
             <td><strong>იაშა</strong></td>
             <td><%= scores.iasha.meti %></td>
-            <td><%= scores.iasha.data %></td>
+            <td><%= scores.iasha.data - scores.iasha.meti%></td>
         </tr>
         <tr>
             <td><strong>მარი</strong></td>
             <td><%= scores.mari.meti %></td>
-            <td><%= scores.mari.data %></td>
+            <td><%= scores.mari.data - scores.mari.meti %></td>
         </tr>
     </table>
 
