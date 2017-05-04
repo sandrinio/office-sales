@@ -1,0 +1,14 @@
+.list-buttons {
+    float: left;
+    margin-bottom: -21px;
+    margin-top: -6px;
+}
+
+.del-form {
+    padding-left: 5px;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+}

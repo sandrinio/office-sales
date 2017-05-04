@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+<div class='container'>
+
+    <div class="form-container">
+        <form action='/addData' method="POST" class="form-inline">
+            <div class="form-group">
+                <label for="number">ნომერი</label>
+                <input name="data[num]" type="text" class="form-control" id="number" placeholder="557722212">
+            </div>
+            <div class="form-group">
+                <label for="pack">პაკეტი</label>
+                <select name="data[pack]" class="form-control">
+                    <option>METI 25</option>
+                    <option>3GEL 500MB</option>
+                    <option>5GEL 1.2GB</option>
+                    <option>7GEL 2GB</option>
+                    <option>10GEL 4GB</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comment">კომენტარი</label>
+                <input name="data[comment]" type="text" class="form-control" id="comment" placeholder="bla bla bla bla">
+            </div>
+            <button type="submit" class="btn btn-primary">დამახსოვრება</button>
+        </form>
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <td><strong>მომხ.</strong></td>
+            <td><strong>ნომერი</strong></td>
+            <td><strong>პაკეტი</strong></td>
+            <td><strong>თარიღი</strong></td>
+            <td><strong>კომენტარი</strong></td>
+        </tr>
+        <tr>
+            <% data.forEach(function(packs){ %>
+            <td class="active"><strong><%= packs.author.fullname %></strong></td>
+            <td class="success"><span><%= packs.num %></span></td></td>
+            <td class="warning"><strong><%= packs.pack %></strong></td>
+            <td class="danger"><strong><%= packs.date.toDateString() %></strong></td>
+            <td class="info"><span><%= packs.comment %></span></td>
+            <% }); %>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+<% include ./partials/footer %>
