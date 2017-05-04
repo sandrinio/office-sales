@@ -16,6 +16,8 @@
                 <option>5GEL 1.2GB</option>
                 <option>7GEL 2GB</option>
                 <option>10GEL 4GB</option>
+                <option>15GEL 6GB</option>
+                <option>30GEL 15GB</option>
               </select>
             </div>
             <div class="form-group">
@@ -26,11 +28,11 @@
         </form>
       </div>
 
-    <table class="table table-bordered">
+    <table class="table table-stripped">
         <tr>
-            <td></td>
-            <td><strong>METI 25</strong></td>
-            <td><strong>DATA</strong></td>
+            <td class="active">კლიჩკა</td>
+            <td class="active"><strong>METI 25</strong></td>
+            <td class="active"><strong>DATA</strong></td>
         </tr>
         <tr>
             <td><strong>ხვედელიძე</strong></td>
@@ -38,9 +40,9 @@
             <td><%= scores.khvedelidze.data - scores.khvedelidze.meti %></td>
         </tr>
         <tr>
-            <td><strong>ბაქრო</strong></td>
-            <td><%= scores.baqro.meti %></td>
-            <td><%= scores.baqro.data - scores.baqro.meti %></td>
+            <td class="active"><strong>ბაქრო</strong></td>
+            <td class="active"><%= scores.baqro.meti %></td>
+            <td class="active"><%= scores.baqro.data - scores.baqro.meti %></td>
         </tr>
         <tr>
             <td><strong>ლიკა</strong></td>
@@ -48,9 +50,9 @@
             <td><%= scores.lika.data - scores.lika.meti %></td>
         </tr>
         <tr>
-            <td><strong>ბაბუასშვილი</strong></td>
-            <td><%= scores.abuashvili.meti %></td>
-            <td><%= scores.abuashvili.data - scores.abuashvili.meti %></td>
+            <td class="active"><strong>ბაბუასშვილი</strong></td>
+            <td class="active"><%= scores.abuashvili.meti %></td>
+            <td class="active"><%= scores.abuashvili.data - scores.abuashvili.meti %></td>
         </tr>
         <tr>
             <td><strong>სანდრო</strong></td>
@@ -58,9 +60,9 @@
             <td><%= scores.sandro.data - scores.sandro.meti%></td>
         </tr>
         <tr>
-            <td><strong>ბოჟა</strong></td>
-            <td><%= scores.boja.meti %></td>
-            <td><%= scores.boja.data - scores.boja.meti %></td>
+            <td class="active"><strong>ბოჟა</strong></td>
+            <td class="active"><%= scores.boja.meti %></td>
+            <td class="active"><%= scores.boja.data - scores.boja.meti %></td>
         </tr>
         <tr>
             <td><strong>იაშა</strong></td>
@@ -68,9 +70,9 @@
             <td><%= scores.iasha.data - scores.iasha.meti%></td>
         </tr>
         <tr>
-            <td><strong>მარი</strong></td>
-            <td><%= scores.mari.meti %></td>
-            <td><%= scores.mari.data - scores.mari.meti %></td>
+            <td class="active"><strong>მარი</strong></td>
+            <td class="active"><%= scores.mari.meti %></td>
+            <td class="active"><%= scores.mari.data - scores.mari.meti %></td>
         </tr>
     </table>
 
@@ -82,7 +84,7 @@
         <td><strong>თარიღი</strong></td>
         <td><strong>კომენტარი</strong></td>
     </tr>
-      <% data.forEach(function(packs){ %>
+      <% allData.forEach(function(packs){ %>
     <tr>
       <td class="active"><strong><%= packs.author.fullname %></strong></td>
       <td class="success"><span><%= packs.num %></span></td>

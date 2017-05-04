@@ -84,16 +84,22 @@ router.get('/home', function (req, res) {
       if (err) {
          return res.send(err);
       }
-      var scores = {};
-      scores.sandro = sandroData;
-      scores.khvedelidze = khvedelaData;
-      scores.iasha = iashaData;
-      scores.boja = bojaData;
-      scores.abuashvili = abuashviliData;
-      scores.lika = likaData;
-      scores.mari = mariData;
-      scores.baqro = baqroData;
-      res.render('landing', { data: data, scores: scores });
+      Data.find({}).limit(40).sort('-date').exec(function (err, allData) {
+         if (err) {
+            res.send(err);
+         } else {
+            var scores = {};
+            scores.sandro = sandroData;
+            scores.khvedelidze = khvedelaData;
+            scores.iasha = iashaData;
+            scores.boja = bojaData;
+            scores.abuashvili = abuashviliData;
+            scores.lika = likaData;
+            scores.mari = mariData;
+            scores.baqro = baqroData;
+            res.render('landing', { allData: allData, scores: scores });
+         }
+      });
    });
 });
 

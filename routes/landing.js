@@ -82,6 +82,10 @@ router.get('/home', (req, res) => {
      if(err){
        return res.send(err)
          }
+     Data.find({}).limit(40).sort('-date').exec((err, allData) => {
+        if(err){
+           res.send(err)
+        }else{
            let scores = {};
            scores.sandro = sandroData;
            scores.khvedelidze = khvedelaData;
@@ -91,8 +95,10 @@ router.get('/home', (req, res) => {
            scores.lika = likaData;
            scores.mari = mariData;
            scores.baqro = baqroData;
-         res.render('landing', {data: data, scores: scores})
-       })
+           res.render('landing', {allData: allData, scores: scores})
+        }
+     });
+       });
 });
 
 router.post('/addData', (req, res) => {
