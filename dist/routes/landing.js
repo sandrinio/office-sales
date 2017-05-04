@@ -4,8 +4,9 @@ var express = require("express");
 var router = express.Router();
 var Data = require("../models/data");
 var User = require('../models/user');
+var middleware = require('../middleware');
 
-router.get('/home', function (req, res) {
+router.get('/home', middleware.isLoggedIn, function (req, res) {
    Data.find({}, function (err, data) {
       var sandroData = { meti: 0, data: 0 };
       var khvedelaData = { meti: 0, data: 0 };
@@ -101,6 +102,10 @@ router.get('/home', function (req, res) {
          }
       });
    });
+});
+
+router.get('/home/:id', function (req, res) {
+   res.send('დამაცადე ეხლა ცოტა ხანი!!!');
 });
 
 router.post('/addData', function (req, res) {
