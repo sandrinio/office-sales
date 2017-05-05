@@ -4,6 +4,7 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/app.js" />
         <item url="file://$PROJECT_DIR$/dist/middleware/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/models/user.js" />
         <item url="file://$PROJECT_DIR$/dist/routes/landing.js" />
         <item url="file://$PROJECT_DIR$/dist/routes/auth.js" />
       </sourceFilesUrls>
@@ -11,6 +12,7 @@
     <CLASSES>
       <root url="file://$PROJECT_DIR$/dist/app.js" />
       <root url="file://$PROJECT_DIR$/dist/middleware/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/models/user.js" />
       <root url="file://$PROJECT_DIR$/dist/routes/landing.js" />
       <root url="file://$PROJECT_DIR$/dist/routes/auth.js" />
     </CLASSES>

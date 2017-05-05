@@ -33,15 +33,15 @@
             <td><strong>თარიღი</strong></td>
             <td><strong>კომენტარი</strong></td>
         </tr>
+        <% data.forEach(function(packs){ %>
         <tr>
-            <% data.forEach(function(packs){ %>
             <td class="active"><strong><%= packs.author.fullname %></strong></td>
             <td class="success"><span><%= packs.num %></span></td></td>
             <td class="warning"><strong><%= packs.pack %></strong></td>
             <td class="danger"><strong><%= packs.date.toDateString() %></strong></td>
             <td class="info"><span><%= packs.comment %></span></td>
-            <% }); %>
         </tr>
+        <% }); %>
     </table>
 
 </div>

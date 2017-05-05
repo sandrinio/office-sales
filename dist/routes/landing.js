@@ -105,7 +105,19 @@ router.get('/home', middleware.isLoggedIn, function (req, res) {
 });
 
 router.get('/home/:id', function (req, res) {
-   res.send('დამაცადე ეხლა ცოტა ხანი!!!');
+   User.findById(req.user._id, function (err, user) {
+      if (err) {
+         res.send(err);
+      } else {
+         Data.find({ 'author.fullname': user.fullname }, function (err, data) {
+            if (err) {
+               res.send(err);
+            } else {
+               res.render('myData', { data: data });
+            }
+         });
+      }
+   });
 });
 
 router.post('/addData', function (req, res) {
@@ -114,7 +126,6 @@ router.post('/addData', function (req, res) {
       fullname: req.user.fullname,
       id: req.user._id
    };
-
    Data.create(obj, function (err, result) {
       if (err) {
          res.send(err);

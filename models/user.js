@@ -8,8 +8,8 @@ var UserSchema = new mongoose.Schema({
   fullname:     {type: String, required: true},
   password:     String,
   permission:   {type: String, required: true},
-  regDate:      {type: Date, default: Date.now}
-
+  regDate:      {type: Date, default: Date.now},
+  myData:       []
 });
 
 UserSchema.plugin(passportLocalMongoose);

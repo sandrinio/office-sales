@@ -88,14 +88,14 @@ router.get('/home', middleware.isLoggedIn, (req, res) => {
            res.send(err)
         }else{
            let scores = {};
-           scores.sandro = sandroData;
-           scores.khvedelidze = khvedelaData;
-           scores.iasha = iashaData;
-           scores.boja = bojaData;
-           scores.abuashvili = abuashviliData;
-           scores.lika = likaData;
-           scores.mari = mariData;
-           scores.baqro = baqroData;
+               scores.sandro = sandroData;
+               scores.khvedelidze = khvedelaData;
+               scores.iasha = iashaData;
+               scores.boja = bojaData;
+               scores.abuashvili = abuashviliData;
+               scores.lika = likaData;
+               scores.mari = mariData;
+               scores.baqro = baqroData;
            res.render('landing', {allData: allData, scores: scores})
         }
      });
@@ -103,7 +103,19 @@ router.get('/home', middleware.isLoggedIn, (req, res) => {
 });
 
 router.get('/home/:id', (req, res) => {
-   res.send('დამაცადე ეხლა ცოტა ხანი!!!')
+   User.findById(req.user._id, (err, user) =>{
+      if(err){
+         res.send(err)
+      }else{
+         Data.find({'author.fullname': user.fullname}, (err, data) => {
+            if(err){
+               res.send(err)
+            }else{
+               res.render('myData', {data: data})
+            }
+         })
+      }
+   })
 });
 
 router.post('/addData', (req, res) => {
@@ -112,7 +124,6 @@ router.post('/addData', (req, res) => {
         fullname: req.user.fullname,
         id: req.user._id
   };
-    
     Data.create(obj, (err, result) => {
         if(err){
             res.send(err)
