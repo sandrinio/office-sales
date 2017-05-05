@@ -27,54 +27,76 @@
           <button type="submit" class="btn btn-primary">დამახსოვრება</button>
         </form>
       </div>
-
-    <table class="table table-stripped">
-        <tr>
-            <td class="active">კლიჩკა</td>
-            <td class="active"><strong>METI 25</strong></td>
-            <td class="active"><strong>DATA</strong></td>
-        </tr>
-        <tr>
-            <td><strong>ხვედელიძე</strong></td>
-            <td><%= scores.khvedelidze.meti %></td>
-            <td><%= scores.khvedelidze.data - scores.khvedelidze.meti %></td>
-        </tr>
-        <tr>
-            <td class="active"><strong>ბაქრო</strong></td>
-            <td class="active"><%= scores.baqro.meti %></td>
-            <td class="active"><%= scores.baqro.data - scores.baqro.meti %></td>
-        </tr>
-        <tr>
-            <td><strong>ლიკა</strong></td>
-            <td><%= scores.lika.meti %></td>
-            <td><%= scores.lika.data - scores.lika.meti %></td>
-        </tr>
-        <tr>
-            <td class="active"><strong>ბაბუასშვილი</strong></td>
-            <td class="active"><%= scores.abuashvili.meti %></td>
-            <td class="active"><%= scores.abuashvili.data - scores.abuashvili.meti %></td>
-        </tr>
-        <tr>
-            <td><strong>სანდრო</strong></td>
-            <td><%= scores.sandro.meti %></td>
-            <td><%= scores.sandro.data - scores.sandro.meti%></td>
-        </tr>
-        <tr>
-            <td class="active"><strong>ბოჟა</strong></td>
-            <td class="active"><%= scores.boja.meti %></td>
-            <td class="active"><%= scores.boja.data - scores.boja.meti %></td>
-        </tr>
-        <tr>
-            <td><strong>იაშა</strong></td>
-            <td><%= scores.iasha.meti %></td>
-            <td><%= scores.iasha.data - scores.iasha.meti%></td>
-        </tr>
-        <tr>
-            <td class="active"><strong>მარი</strong></td>
-            <td class="active"><%= scores.mari.meti %></td>
-            <td class="active"><%= scores.mari.data - scores.mari.meti %></td>
-        </tr>
-    </table>
+  <!--<div class="data-containers">   -->
+    <div class="allData-table">
+      <table class="table table-stripped">
+          <tr>
+              <td class="active"><strong>კლიჩკა</strong></td>
+              <td class="active"><strong>METI 25</strong></td>
+              <td class="active"><strong>DATA</strong></td>
+          </tr>
+          <tr>
+              <td><strong>ხვედელიძე</strong></td>
+              <td><%= scores.khvedelidze.meti %></td>
+              <td><%= scores.khvedelidze.data - scores.khvedelidze.meti %></td>
+          </tr>
+          <tr>
+              <td class="active"><strong>ბაქრო</strong></td>
+              <td class="active"><%= scores.baqro.meti %></td>
+              <td class="active"><%= scores.baqro.data - scores.baqro.meti %></td>
+          </tr>
+          <tr>
+              <td><strong>ლიკა</strong></td>
+              <td><%= scores.lika.meti %></td>
+              <td><%= scores.lika.data - scores.lika.meti %></td>
+          </tr>
+          <tr>
+              <td class="active"><strong>ბაბუასშვილი</strong></td>
+              <td class="active"><%= scores.abuashvili.meti %></td>
+              <td class="active"><%= scores.abuashvili.data - scores.abuashvili.meti %></td>
+          </tr>
+          <tr>
+              <td><strong>სანდრო</strong></td>
+              <td><%= scores.sandro.meti %></td>
+              <td><%= scores.sandro.data - scores.sandro.meti%></td>
+          </tr>
+          <tr>
+              <td class="active"><strong>ბოჟა</strong></td>
+              <td class="active"><%= scores.boja.meti %></td>
+              <td class="active"><%= scores.boja.data - scores.boja.meti %></td>
+          </tr>
+          <tr>
+              <td><strong>იაშა</strong></td>
+              <td><%= scores.iasha.meti %></td>
+              <td><%= scores.iasha.data - scores.iasha.meti%></td>
+          </tr>
+          <tr>
+              <td class="active"><strong>მარი</strong></td>
+              <td class="active"><%= scores.mari.meti %></td>
+              <td class="active"><%= scores.mari.data - scores.mari.meti %></td>
+          </tr>
+          <% var metiTotal = scores.mari.meti + scores.iasha.meti + scores.boja.meti + scores.sandro.meti + scores.abuashvili.meti + scores.baqro.meti + scores.lika.meti + scores.khvedelidze.meti %>
+          <% var dataTotal = scores.mari.data + scores.iasha.data + scores.boja.data + scores.sandro.data + scores.abuashvili.data + scores.baqro.data + scores.lika.data + scores.khvedelidze.data %>
+          <tr>
+              <td class="warning"><strong>TOTAL:</strong></td>
+              <td class="warning"><strong><%= metiTotal %></strong></td>
+              <td class="warning"><strong><%= dataTotal - metiTotal %></strong></td>
+          </tr>
+      </table>
+    </div>
+      <div class="target-data">
+        <table class="table table-stripped">
+          <tr>
+              <td class="active"><strong>რაოდენობა</strong></td>
+              <td><%= turistData.quantity %></td>
+          </tr>
+          <tr>
+            <td><strong>დენგი</strong></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    
 
   <table class="table table-striped">
     <tr>

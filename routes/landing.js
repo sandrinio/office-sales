@@ -3,6 +3,7 @@ const router = express.Router();
 const Data = require("../models/data");
 const User = require('../models/user');
 const middleware = require('../middleware');
+const TuristSim = require('../models/turist');
 
 router.get('/home', middleware.isLoggedIn, (req, res) => {
   Data.find({}, function(err, data){
@@ -87,7 +88,11 @@ router.get('/home', middleware.isLoggedIn, (req, res) => {
         if(err){
            res.send(err)
         }else{
-           let scores = {};
+            TuristSim.find({}, (err, turistData) => {
+                if(err){
+                    res.send(err)
+                }else{
+                     const scores = {};
                scores.sandro = sandroData;
                scores.khvedelidze = khvedelaData;
                scores.iasha = iashaData;
@@ -96,7 +101,10 @@ router.get('/home', middleware.isLoggedIn, (req, res) => {
                scores.lika = likaData;
                scores.mari = mariData;
                scores.baqro = baqroData;
-           res.render('landing', {allData: allData, scores: scores})
+               console.log(turistData)
+           res.render('landing', {allData: allData, scores: scores, turistData: turistData})
+                }
+            })
         }
      });
        });
@@ -129,6 +137,18 @@ router.post('/addData', (req, res) => {
             res.send(err)
         }else{
             res.redirect('/home');
+        }
+    });
+});
+
+router.post('/addSimQuantity', (req, res) => {
+    const obj = {quantity: req.body.quantity }
+    TuristSim.create(obj, (err, result) => {
+        if(err){
+            res.send(err);
+        }else{
+            console.log(result)
+            res.redirect('back');
         }
     });
 });

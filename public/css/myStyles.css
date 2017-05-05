@@ -15,5 +15,21 @@
 
 .form-container {
     margin: 20px auto;
-    width: 800px;
+    min-width: 800px;
+}
+
+.allData-table {
+    max-width: 45%;
+    min-width: 45%;
+    float: left;
+}
+
+.target-data {
+    max-width: 45%;
+    float: right;
+    min-width: 45%;
+}
+
+.form-container2 {
+    width: 200px
 }
