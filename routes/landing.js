@@ -101,8 +101,11 @@ router.get('/home', middleware.isLoggedIn, (req, res) => {
                scores.lika = likaData;
                scores.mari = mariData;
                scores.baqro = baqroData;
-               console.log(turistData)
-           res.render('landing', {allData: allData, scores: scores, turistData: turistData})
+
+           res.render('landing', { allData: allData,
+                                   scores: scores,
+                                   turistData: turistData
+                                  })
                 }
             })
         }
@@ -142,12 +145,11 @@ router.post('/addData', (req, res) => {
 });
 
 router.post('/addSimQuantity', (req, res) => {
-    const obj = {quantity: req.body.quantity }
-    TuristSim.create(obj, (err, result) => {
+    const obj = {quantity: req.body.quantity };
+    TuristSim.findByIdAndUpdate('590cba62fa11a629dc86fe09', obj, (err, result) => {
         if(err){
             res.send(err);
         }else{
-            console.log(result)
             res.redirect('back');
         }
     });

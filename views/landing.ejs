@@ -28,8 +28,8 @@
         </form>
       </div>
   <!--<div class="data-containers">   -->
-    <div class="allData-table">
-      <table class="table table-stripped">
+
+      <table class="table table-stripped allData-table">
           <tr>
               <td class="active"><strong>კლიჩკა</strong></td>
               <td class="active"><strong>METI 25</strong></td>
@@ -78,24 +78,23 @@
           <% var metiTotal = scores.mari.meti + scores.iasha.meti + scores.boja.meti + scores.sandro.meti + scores.abuashvili.meti + scores.baqro.meti + scores.lika.meti + scores.khvedelidze.meti %>
           <% var dataTotal = scores.mari.data + scores.iasha.data + scores.boja.data + scores.sandro.data + scores.abuashvili.data + scores.baqro.data + scores.lika.data + scores.khvedelidze.data %>
           <tr>
-              <td class="warning"><strong>TOTAL:</strong></td>
-              <td class="warning"><strong><%= metiTotal %></strong></td>
-              <td class="warning"><strong><%= dataTotal - metiTotal %></strong></td>
+              <td class="success"><strong>TOTAL:</strong></td>
+              <td class="success"><strong><%= metiTotal %> / 80</strong></td>
+              <td class="success"><strong><%= dataTotal - metiTotal %> / 991</strong></td>
           </tr>
       </table>
-    </div>
-      <div class="target-data">
-        <table class="table table-stripped">
+        <% var money = turistData[0].quantity * 5 / 8 %>
+
+        <table class="table table-stripped target-data">
           <tr>
-              <td class="active"><strong>რაოდენობა</strong></td>
-              <td><%= turistData.quantity %></td>
+              <td class="active"><strong>Tourist+</strong></td>
+              <td class="active"><%= turistData[0].quantity %></td>
           </tr>
           <tr>
             <td><strong>დენგი</strong></td>
-            <td></td>
+            <td><span class="text-green"><strong><%= money %> GELA</strong></span></td>
           </tr>
         </table>
-      </div>
     
 
   <table class="table table-striped">

@@ -5,6 +5,7 @@ var router = express.Router();
 var Data = require("../models/data");
 var User = require('../models/user');
 var middleware = require('../middleware');
+var TuristSim = require('../models/turist');
 
 router.get('/home', middleware.isLoggedIn, function (req, res) {
    Data.find({}, function (err, data) {
@@ -89,16 +90,26 @@ router.get('/home', middleware.isLoggedIn, function (req, res) {
          if (err) {
             res.send(err);
          } else {
-            var scores = {};
-            scores.sandro = sandroData;
-            scores.khvedelidze = khvedelaData;
-            scores.iasha = iashaData;
-            scores.boja = bojaData;
-            scores.abuashvili = abuashviliData;
-            scores.lika = likaData;
-            scores.mari = mariData;
-            scores.baqro = baqroData;
-            res.render('landing', { allData: allData, scores: scores });
+            TuristSim.find({}, function (err, turistData) {
+               if (err) {
+                  res.send(err);
+               } else {
+                  var scores = {};
+                  scores.sandro = sandroData;
+                  scores.khvedelidze = khvedelaData;
+                  scores.iasha = iashaData;
+                  scores.boja = bojaData;
+                  scores.abuashvili = abuashviliData;
+                  scores.lika = likaData;
+                  scores.mari = mariData;
+                  scores.baqro = baqroData;
+
+                  res.render('landing', { allData: allData,
+                     scores: scores,
+                     turistData: turistData
+                  });
+               }
+            });
          }
       });
    });
@@ -131,6 +142,17 @@ router.post('/addData', function (req, res) {
          res.send(err);
       } else {
          res.redirect('/home');
+      }
+   });
+});
+
+router.post('/addSimQuantity', function (req, res) {
+   var obj = { quantity: req.body.quantity };
+   TuristSim.findByIdAndUpdate('590cba62fa11a629dc86fe09', obj, function (err, result) {
+      if (err) {
+         res.send(err);
+      } else {
+         res.redirect('back');
       }
    });
 });

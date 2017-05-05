@@ -22,14 +22,29 @@
     max-width: 45%;
     min-width: 45%;
     float: left;
+    background-color: white;
+    margin-bottom: 20px;
 }
 
 .target-data {
     max-width: 45%;
     float: right;
     min-width: 45%;
+    background-color: white;
 }
 
 .form-container2 {
     width: 200px
+}
+
+.text-green {
+    color: green;
+}
+
+body {
+    background-color: #dddddd;
+}
+
+.magic-btn {
+    display: none;
 }

@@ -25,15 +25,13 @@
         </form>
     </div>
     <% if(currentUser.fullname === "Tamar Bakradze") { %>
-    <div class="form-container2">
-        <form action="/addSimQuantity" method="post">
+        <form action="/addSimQuantity" method="post" class="form-inline">
             <div class="form-group">
-                <label for="numb">ნომერი</label>
+                <label for="numb">Tourist+</label>
                 <input name="quantity" type="text" class="form-control" id="numb">
             </div>
             <button type="submit" class="btn btn-primary">დამახსოვრება</button>
         </form>
-    </div>
     <% } %>
 
     <table class="table table-striped">
@@ -51,7 +49,7 @@
             <td class="warning"><strong><%= packs.pack %></strong></td>
             <td class="danger"><strong><%= packs.date.toDateString() %></strong></td>
             <td class="info"><span><%= packs.comment %></span></td>
-            <td class="active">
+            <td>
                 <form action="/data-delete/<%= packs._id %>?_method=DELETE" method="post">
                     <button class="btn btn-danger">Del.</button>
                 </form>
